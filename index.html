@@ -1,11 +1,10 @@
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Online Compiler</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCR Online Compiler</title>
 </head>
 
-<body style="background-color: #eee; font-family: monospace; margin: 8px;" >
-    <h2>🔥 Online Compiler<sub><small> Powered by <a href="https://bit.ly/2UCsWRM">Judge0</a></small></sub></h2>
+<body style="background-color: #eff; font-family: monospace; margin: 8px;" >
+    <h2>Online Compiler</h2>
 
     <h4>Source Code</h4>
     <textarea id="source" style="width: calc(50% - 8px); height: 40%; resize: vertical;">
@@ -29,17 +28,14 @@ int main()
 
     <h4>Language</h4>
     <select id="lang">
-        <option>Bash</option>
-        <option>C#</option>
-        <option selected>C++</option>
+	<option selected>Java</option>
+	<option>Python</option>
+        <option>C++</option>
         <option>C</option>
-        <option>Java</option>
-        <option>Python</option>
-        <option>Ruby</option>
     </select>
 
     <h4>Input</h4>
-    <textarea id="input" style="width: calc(50% - 8px); height: 10%; resize: vertical;">John</textarea>
+    <textarea id="input" style="width: calc(50% - 8px); height: 10%; resize: vertical;">Enter input</textarea>
 
     <h4>Expected Output<sub><small>(optional)</small></sub></h4>
     <textarea id="expected-output" style="width: calc(50% - 8px); height: 10%; resize: vertical;"></textarea>
@@ -49,7 +45,7 @@ int main()
 
     <small style="width: 50%; text-align: center; color: #ccc;">Source code available on <a style="color: #bbb; font-weight: bold;" href="https://github.com/hermanzdosilovic/online-compiler">GitHub</a>.</p>
 
-    <textarea readonly id="output" style="width: 50%; height: 100%; position: fixed; top: 0; right: 0; resize: none;"></textarea>
+    <textarea readonly id="output" style="width: 50%; height: 100%; top: 0; right: 0; resize: vertical;"></textarea>
 
     <script type="text/javascript">
         API_KEY = ""; // Get yours for free at https://judge0.com/ce or https://judge0.com/extra-ce
