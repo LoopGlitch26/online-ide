@@ -8,19 +8,23 @@
 
     <h4>Source Code</h4>
     <textarea id="source" style="width: calc(100% - 40px); height: 40%; resize: vertical;">
-class Main {
-  public static void main(String[] args) {
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    int n, reverse = 0;
+    Scanner in = new Scanner(System.in);
+    n = in.nextInt();
 
-    int num = 1234, reversed = 0;
-
-    while(num != 0) {
-    
-      int digit = num % 10;
-      reversed = reversed * 10 + digit;
-      num /= 10;
+    while(n != 0)
+    {
+      reverse = reverse * 10;
+      reverse = reverse + n%10;
+      n = n/10;
     }
 
-    System.out.println("Reversed Number: " + reversed);
+    System.out.println("Reverse of the number is " + reverse);
   }
 }
     </textarea>
