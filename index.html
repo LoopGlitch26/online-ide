@@ -7,7 +7,7 @@
     <h2>Online Compiler</h2>
 
     <h4>Source Code</h4>
-    <textarea id="source" style="width: calc(50% - 8px); height: 40%; resize: vertical;">
+    <textarea id="source" style="width: calc(100% - 8px); height: 40%; resize: vertical;">
 #include <iostream>
 #include <string>
 
@@ -28,24 +28,24 @@ int main()
 
     <h4>Language</h4>
     <select id="lang">
-	<option selected>Java</option>
+	<option>Java</option>
 	<option>Python</option>
-        <option>C++</option>
+        <option selected>C++</option>
         <option>C</option>
     </select>
 
     <h4>Input</h4>
-    <textarea id="input" style="width: calc(50% - 8px); height: 10%; resize: vertical;">Enter input</textarea>
+    <textarea id="input" style="width: calc(100% - 8px); height: 10%; resize: vertical;">Enter input</textarea>
 
     <h4>Expected Output<sub><small>(optional)</small></sub></h4>
-    <textarea id="expected-output" style="width: calc(50% - 8px); height: 10%; resize: vertical;"></textarea>
+    <textarea id="expected-output" style="width: calc(100% - 8px); height: 10%; resize: vertical;"></textarea>
 
     </br></br>
     <button id="run" onclick="run()">▶️ Run (Ctrl + Enter)</button>
 
     <small style="width: 50%; text-align: center; color: #ccc;">Source code available on <a style="color: #bbb; font-weight: bold;" href="https://github.com/hermanzdosilovic/online-compiler">GitHub</a>.</p>
 
-    <textarea readonly id="output" style="width: 50%; height: 100%; top: 0; right: 0; resize: vertical;"></textarea>
+    <textarea readonly id="output" style="width: 100%; height: 100%; top: 0; right: 0; resize: vertical;"></textarea>
 
     <script type="text/javascript">
         API_KEY = ""; // Get yours for free at https://judge0.com/ce or https://judge0.com/extra-ce
