@@ -70,7 +70,7 @@ class Main {
         }
 
         function check(token) {
-            $("#output").val($("#output").val() + "\n⏬ Checking submission status...");
+            $("#output").val($("#output").val() + "\nChecking submission status...");
             $.ajax({
                 url: `https://judge0-ce.p.rapidapi.com/submissions/${token}?base64_encoded=true`,
                 type: "GET",
@@ -80,12 +80,12 @@ class Main {
                 },
                 success: function (data, textStatus, jqXHR) {
                     if ([1, 2].includes(data["status"]["id"])) {
-                        $("#output").val($("#output").val() + "\nℹ️ Status: " + data["status"]["description"]);
+                        $("#output").val($("#output").val() + "\nStatus: " + data["status"]["description"]);
                         setTimeout(function() { check(token) }, 1000);
                     }
                     else {
                         var output = [decode(data["compile_output"]), decode(data["stdout"])].join("\n").trim();
-                        $("#output").val(`${data["status"]["id"] != "3" ? "🔴" : "🟢"} ${data["status"]["description"]}\n${output}`);
+                        $("#output").val(output);
                         $("#run").prop("disabled", false);
                     }
                 },
@@ -95,15 +95,9 @@ class Main {
 
         function run() {
             $("#run").prop("disabled", true);
-            $("#output").val("⚙️ Creating submission...");
-
-            let encodedExpectedOutput = encode($("#expected-output").val());
-            if (encodedExpectedOutput === "") {
-                encodedExpectedOutput = null; // Assume that user does not want to use expected output if it is empty.
-            }
-
+            $("#output").val("Creating submission...");
             $.ajax({
-                url: "https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=true&wait=false",
+                url: "https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=true",
                 type: "POST",
                 contentType: "application/json",
                 headers: {
@@ -114,11 +108,10 @@ class Main {
                     "language_id": language_to_id[$("#lang").val()],
                     "source_code": encode($("#source").val()),
                     "stdin": encode($("#input").val()),
-                    "expected_output": encodedExpectedOutput,
                     "redirect_stderr_to_stdout": true
                 }),
                 success: function(data, textStatus, jqXHR) {
-                    $("#output").val($("#output").val() + "\n🎉 Submission created.");
+                    $("#output").val($("#output").val() + "\nSubmission created.");
                     setTimeout(function() { check(data["token"]) }, 2000);
                 },
                 error: errorHandler
