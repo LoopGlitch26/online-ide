@@ -8,37 +8,36 @@
 
     <h4>Source Code</h4>
     <textarea id="source" style="width: calc(100% - 40px); height: 40%; resize: vertical;">
-#include <iostream>
-#include <string>
+class Main {
+  public static void main(String[] args) {
 
-#pragma message "Hello from compilation!"
+    int num = 1234, reversed = 0;
 
-int main()
-{
-    std::string name;
-    std::cin >> name;
+    while(num != 0) {
+    
+      int digit = num % 10;
+      reversed = reversed * 10 + digit;
+      num /= 10;
+    }
 
-    std::cout << "Hi " << name << "!\n";
-    std::cerr << "This is a dummy error message " << name << ".\n";
-    std::cout << "But don't worry " << name << ", everything is fine! :)\n";
-
-    return 0;
+    System.out.println("Reversed Number: " + reversed);
+  }
 }
     </textarea>
 
     <h4>Language</h4>
     <select id="lang">
-	<option>Java</option>
+	<option selected>Java</option>
 	<option>Python</option>
-        <option selected>C++</option>
+        <option>C++</option>
         <option>C</option>
     </select>
 
     <h4>Input</h4>
-    <textarea id="input" style="width: calc(100% - 40px); height: 10%; resize: vertical;">Enter input</textarea>
+    <textarea id="input" style="width: calc(100% - 40px); height: 10%; resize: vertical;"></textarea>
 
     </br></br>
-    <button id="run" onclick="run()">▶️ Run (Ctrl + Enter)</button>
+    <button id="run" onclick="run()">▶️ Run</button>
 
     <textarea readonly id="output" style="width: calc(100% - 40px); height: 100%; top: 0; right: 0; resize: vertical;"></textarea>
 
